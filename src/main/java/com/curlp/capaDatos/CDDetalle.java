@@ -54,7 +54,7 @@ public class CDDetalle {
             JOptionPane.showMessageDialog(null,"Error" + e.getMessage());
         }
         
-    }
+    }      
     
     // metodo para eliminar detalle de una factura 
      public void eliminarDetalle(CLDetalle cl) throws SQLException { 
@@ -69,4 +69,4 @@ public class CDDetalle {
         } 
               
     }
-}
+}    
