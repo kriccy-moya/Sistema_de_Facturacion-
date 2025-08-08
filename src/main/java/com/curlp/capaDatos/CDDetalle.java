@@ -67,6 +67,6 @@ public class CDDetalle {
         }catch (SQLException e ) {
             JOptionPane.showMessageDialog(null,"Error" + e.getMessage());
         } 
-        
+              
     }
 }
