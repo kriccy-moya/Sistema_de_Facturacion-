@@ -16,7 +16,7 @@ import java.sql.Statement;
  * @author kricc
  */
 public class CDCliente {
-    
+        
      private final Connection cn;
     PreparedStatement ps;
     ResultSet rs;
