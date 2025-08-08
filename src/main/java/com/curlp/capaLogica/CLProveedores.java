@@ -17,7 +17,7 @@ public class CLProveedores {
     private String direccionProveedor;
     private String RTNProveedor;
     private boolean estadoProveedor;
-    private int ciudad;
+    private CLCiudad ciudad;
 
     public int getIdProveedor() {
         return idProveedor;
@@ -47,7 +47,7 @@ public class CLProveedores {
         return estadoProveedor;
     }
 
-    public int getCiudad() {
+    public CLCiudad getCiudad() {
         return ciudad;
     }
 
@@ -79,7 +79,7 @@ public class CLProveedores {
         this.estadoProveedor = estadoProveedor;
     }
 
-    public void setCiudad(int ciudad) {
+    public void setCiudad(CLCiudad ciudad) {
         this.ciudad = ciudad;
     }
     
