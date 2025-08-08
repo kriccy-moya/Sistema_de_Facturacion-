@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /** 
  *
- * @author kricc
+ * @author kricc   
  */
 public class CDCiudad {
     
