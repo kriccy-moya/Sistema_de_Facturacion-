@@ -57,7 +57,7 @@ public class CDDetalle {
     }
     
     // metodo para eliminar detalle de una factura 
-     public void eliminarDetalle(CLDetalle cl) throws SQLException {
+     public void eliminarDetalle(CLDetalle cl) throws SQLException { 
         String sql ="{CALL sp_eliminarDetalle(?)}";
         
         try {
@@ -66,7 +66,7 @@ public class CDDetalle {
             ps.execute();
         }catch (SQLException e ) {
             JOptionPane.showMessageDialog(null,"Error" + e.getMessage());
-        }
+        } 
         
     }
 }
