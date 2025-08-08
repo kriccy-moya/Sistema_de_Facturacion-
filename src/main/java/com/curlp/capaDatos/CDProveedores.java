@@ -4,6 +4,7 @@
  */
 package com.curlp.capaDatos;
 
+import com.curlp.capaLogica.CLCiudad;
 import com.curlp.capaLogica.CLProveedores;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,6 +45,7 @@ public class CDProveedores {
 
             while (rs.next()) {
                 CLProveedores prov = new CLProveedores();
+                CLCiudad c = new CLCiudad();
 
                 prov.setIdProveedor(rs.getInt("idProveedor"));
                 prov.setNombreProveedor(rs.getString("nombreProveedor"));
@@ -52,7 +54,8 @@ public class CDProveedores {
                 prov.setNombreContacto(rs.getString("nombreContacto"));
                 prov.setRTNProveedor(rs.getString("RTNProveedor"));
                 prov.setEstadoProveedor(rs.getBoolean("estadoProveedor"));
-                prov.setCiudad(rs.getInt("IdCiudad")); // Linea momentanea
+                c.setNombreCiudad(rs.getString("nombreCiudad"));
+                prov.setCiudad(c);
 
                 miLista.add(prov);
             }
@@ -75,7 +78,7 @@ public class CDProveedores {
             ps.setString(4, prov.getDireccionProveedor());
             ps.setString(5, prov.getRTNProveedor());
             ps.setBoolean(6, prov.getEstadoProveedor());
-            ps.setInt(7, prov.getCiudad()); // Linea momentanea
+            ps.setString(7, prov.getCiudad().getNombreCiudad());
             ps.execute();
             
         } catch (SQLException e) {
@@ -96,7 +99,7 @@ public class CDProveedores {
             ps.setString(5, prov.getDireccionProveedor());
             ps.setString(6, prov.getRTNProveedor());
             ps.setBoolean(7, prov.getEstadoProveedor());
-            ps.setInt(8, prov.getCiudad()); // Linea momentanea
+            ps.setString(8, prov.getCiudad().getNombreCiudad());
             ps.execute();
             
         } catch (SQLException e) {

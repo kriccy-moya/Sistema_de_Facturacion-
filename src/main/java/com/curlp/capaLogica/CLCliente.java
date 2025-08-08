@@ -16,8 +16,8 @@ public class CLCliente {
     private char telefono;
     private String email;
     private String RTN;
-    private int idCiudad;
-    private int idSexo;
+    private CLCiudad ciudad;
+    private CLSexo sexo;
 
     public int getClienteID() {
         return ClienteID;
@@ -47,20 +47,22 @@ public class CLCliente {
         return RTN;
     }
 
-    public int getIdCiudad() {
-        return idCiudad;
+    public CLCiudad getCiudad() {
+        return ciudad;
     }
 
-    public int getIdSexo() {
-        return idSexo;
+    public CLSexo getSexo() {
+        return sexo;
     }
 
     public void setClienteID(int ClienteID) {
         this.ClienteID = ClienteID;
     }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
@@ -68,21 +70,24 @@ public class CLCliente {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+    
     public void setTelefono(char telefono) {
         this.telefono = telefono;
     }
+    
     public void setEmail(String email) {
         this.email = email;
     }
+    
     public void setRTN(String RTN) {
         this.RTN = RTN;
     }
-    public void setIdCiudad(int idCiudad) {
-        this.idCiudad = idCiudad;
+
+    public void setCiudad(CLCiudad ciudad) {
+        this.ciudad = ciudad;
     }
-    public void setIdSexo(int idSexo) {
-        this.idSexo = idSexo;
+
+    public void setSexo(CLSexo sexo) {
+        this.sexo = sexo;
     }
-    
-    
 }
