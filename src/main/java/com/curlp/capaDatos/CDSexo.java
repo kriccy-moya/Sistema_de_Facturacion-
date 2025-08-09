@@ -31,7 +31,9 @@ public class CDSexo {
                 + "FROM sexo";
         
         List<CLSexo> miLista = null;
-        try {
+        try (Connection cn = Conexion.conectar();
+              PreparedStatement ps = cn.prepareCall(sql))
+        {
             st = cn.createStatement();
             rs = st.executeQuery(sql);
             
@@ -46,7 +48,7 @@ public class CDSexo {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
-        
+        cn.close();
         return miLista;
     }
 }

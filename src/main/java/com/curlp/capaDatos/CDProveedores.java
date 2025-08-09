@@ -119,5 +119,6 @@ public class CDProveedores {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
+        cn.close();
     }
 }

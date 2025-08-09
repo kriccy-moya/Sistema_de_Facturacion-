@@ -28,17 +28,22 @@ public class CDDetalle {
     }
     // metodo para insertar detalle 
     public void insertarDetalle(CLDetalle cl) {
-        String sql ="{CALL sp_insertarDetalle(?)}";
+        String sql ="{CALL sp_insertarDetalle(?,?,?,?)}";
         
-           try { 
-            ps = cn.prepareCall(sql);
+           try (Connection cn = Conexion.conectar();
+                PreparedStatement ps = cn.prepareCall(sql))
+           { 
+            
             ps.setInt(1,cl.getCantidad());
-        } catch (SQLException e) {
+            ps.setDouble(1 , cl.getPrecioUnitario()); 
+            ps.setInt(1, cl.getFacturaID());
+            ps.setInt(1,cl.getCodProducto());
+           } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"Error" + e.getMessage());
         }
     }
     // metodo para actualizar detalle 
-      public void actualizarCiudad(CLDetalle cl) throws SQLException {
+      public void actualizarDetalle(CLDetalle cl) throws SQLException {
         String sql ="{CALL sp_actualizarDetalle(?)}";
         
         try {

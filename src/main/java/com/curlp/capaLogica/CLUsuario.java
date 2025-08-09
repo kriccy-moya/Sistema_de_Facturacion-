@@ -11,11 +11,34 @@ package com.curlp.capaLogica;
 public class CLUsuario {
     
     private int idUsuario;
+    private String nombre;
+    private String apellidos;
     private String nombreUsuario;
     private String contraseña;
     private boolean estado;
     private int idRol;
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }

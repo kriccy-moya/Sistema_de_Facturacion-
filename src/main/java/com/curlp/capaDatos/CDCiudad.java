@@ -33,8 +33,10 @@ public class CDCiudad {
     public void insertarCiudad(CLCiudad cl) throws SQLException {
         String sql ="{CALL sp_insertarCiudad(?)}";
         
-        try {
-            ps = cn.prepareCall(sql);
+        try (Connection cn = Conexion.conectar();
+            PreparedStatement ps = cn.prepareCall(sql))
+        {
+           
             ps.setString(1,cl.getNombreCiudad());
         }catch (SQLException e ) {
             JOptionPane.showMessageDialog(null,"Error" + e.getMessage());
@@ -46,8 +48,10 @@ public class CDCiudad {
      public void actualizarCiudad(CLCiudad cl) throws SQLException {
         String sql ="{CALL sp_actualizarCiudad(?)}";
         
-        try {
-            ps = cn.prepareCall(sql);
+        try  (Connection cn = Conexion.conectar();
+              PreparedStatement ps = cn.prepareCall(sql))
+        {
+            
             ps.setInt(1,cl.getCiudadID());
             ps.setString(1,cl.getNombreCiudad());
             ps.execute();
@@ -63,8 +67,10 @@ public class CDCiudad {
       public void eliminarCiudad(CLCiudad cl) throws SQLException {
         String sql ="{CALL sp_eliminarCiudad(?)}";
         
-        try {
-            ps = cn.prepareCall(sql);
+        try (Connection cn = Conexion.conectar();
+              PreparedStatement ps = cn.prepareCall(sql)) 
+        {
+            
             ps.setInt(1, cl.getCiudadID());
             ps.execute();
         }catch (SQLException e ) {
@@ -117,7 +123,7 @@ public class CDCiudad {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
         }
-        
+        cn.close();
         return miLista;
     }
 }

@@ -77,6 +77,7 @@ public class CDTipoVenta {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
+        cn.close();
         return miLista;
     }
 }

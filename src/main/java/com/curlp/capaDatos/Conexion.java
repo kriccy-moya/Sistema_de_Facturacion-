@@ -8,23 +8,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- *    
- * @author kricc
- */
 public class Conexion {
     
-    private static String url = "jdbc:mysql://localhost:3306/clientedatabase?zeroDateTimeBehavior=CONVERT_TO_NULL";
-    private static String usec = "root";
-    private static String clave ="123456789";
+    private static final String url = "jdbc:mysql://localhost:3306/clientedatabase?zeroDateTimeBehavior=CONVERT_TO_NULL";
+    private static final String user = "root";
+    private static final String clave = "123456789";
     
     public static Connection conectar() throws SQLException {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            
-            return DriverManager.getConnection(url,usec,clave) ;
+            Class.forName("com.mysql.cj.jdbc.Driver"); // Carga el driver MySQL
+            return DriverManager.getConnection(url, user, clave);
         } catch (ClassNotFoundException e) {
-          throw new SQLException(e.getMessage());
-        }  
+            throw new SQLException("Error al cargar el driver: " + e.getMessage());
+        }
     }
 }

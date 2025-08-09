@@ -33,8 +33,10 @@ public class CDMarca {
     public void insertarMarca(CLMarca cl) {
         String sql = "{CALL sp_insertarMarca(?)}";
         
-        try { 
-            ps = cn.prepareCall(sql);
+        try  (Connection cn = Conexion.conectar();
+             PreparedStatement ps = cn.prepareCall(sql))
+        { 
+            
             ps.setString(1,cl.getNombreMarca());
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"Error" + e.getMessage());
@@ -44,8 +46,10 @@ public class CDMarca {
     public void eliminarMarca(CLMarca cl ) throws SQLException {
         String sql = "{CALL sp_eliminarMarca}";
         
-        try {
-            ps = cn.prepareCall(sql);
+        try  (Connection cn = Conexion.conectar();
+               PreparedStatement ps = cn.prepareCall(sql))
+        {
+            
             ps.setInt(1, cl.getMarcaID());
             ps.execute();
         } catch (SQLException e ) {
@@ -59,7 +63,9 @@ public class CDMarca {
           String sql ="{CALL sp_mostrarCiudades}";
           List<CLMarca> miLista = null;
           
-          try {
+          try (Connection cn = Conexion.conectar();
+               PreparedStatement ps = cn.prepareCall(sql))
+           {
               st = cn.createStatement();
               rs = st.executeQuery(sql);
               
@@ -74,6 +80,7 @@ public class CDMarca {
               }catch (SQLException e) {
                       JOptionPane.showMessageDialog(null,"Error" + e.getMessage());
                       }
+          
           return miLista;
           }
 }
