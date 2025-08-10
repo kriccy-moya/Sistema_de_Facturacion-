@@ -1,8 +1,11 @@
 package com.curlp.capaPresentacion;
 
 import controlador.Reportes;
-import java.awt.Dimension;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 
 /**
  * 
@@ -202,10 +205,12 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/proveedor.png"))); // NOI18N
         jMenu7.setText("Proveedores");
         jMenu7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jMIRegistrarProveedor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMIRegistrarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo-producto.png"))); // NOI18N
         jMIRegistrarProveedor.setText("Registrar Proveedor");
         jMIRegistrarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +220,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu7.add(jMIRegistrarProveedor);
 
         jMIGestionarProveedores.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMIGestionarProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/geston-proveedores.png"))); // NOI18N
         jMIGestionarProveedores.setText("Gestionar Proveedores");
         jMIGestionarProveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,18 +311,22 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
+        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mantenimiento.png"))); // NOI18N
         jMenu9.setText("Mantenimiento");
         jMenu9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jMICiudades.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMICiudades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ciudades.png"))); // NOI18N
         jMICiudades.setText("Ciudades");
         jMenu9.add(jMICiudades);
 
         jMIMarcas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMIMarcas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/marca.png"))); // NOI18N
         jMIMarcas.setText("Marcas");
         jMenu9.add(jMIMarcas);
 
         jMIInteres.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMIInteres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/interes.png"))); // NOI18N
         jMIInteres.setText("Interes");
         jMenu9.add(jMIInteres);
 
@@ -355,10 +365,23 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMIRegistrarCategoriaActionPerformed
 
     private void jMIGestionarCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIGestionarCategoriasActionPerformed
-       
+        jIFraGestionCategorias prov;
+        try {
+            prov = new jIFraGestionCategorias();
+            menu.add(prov);
+            prov.setVisible(true);
+        
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error" + ex);
+        }
+        
     }//GEN-LAST:event_jMIGestionarCategoriasActionPerformed
 
     private void jMIRegistrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIRegistrarProductoActionPerformed
+        
+        jIFraAgregarCategoria prov = new jIFraAgregarCategoria();
+        menu.add(prov);
+        prov.setVisible(true);
         
     }//GEN-LAST:event_jMIRegistrarProductoActionPerformed
 
@@ -418,13 +441,23 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ItemStateChanged
 
     private void jMIRegistrarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIRegistrarProveedorActionPerformed
+        jIFraAgregarProv prov = new jIFraAgregarProv();
+        menu.add(prov);
+        prov.setVisible(true);
         
     }//GEN-LAST:event_jMIRegistrarProveedorActionPerformed
 
     private void jMIGestionarProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIGestionarProveedoresActionPerformed
-        jPnlProveedor prov = new jPnlProveedor();
-        menu.add(prov);
-        prov.setVisible(true);
+        jIFraGestionProv prov;
+        try {
+            prov = new jIFraGestionProv();
+            menu.add(prov);
+            prov.setVisible(true);
+        
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error" + ex);
+        }
+        
     }//GEN-LAST:event_jMIGestionarProveedoresActionPerformed
 
     /**
