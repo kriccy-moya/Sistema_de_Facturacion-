@@ -1,3 +1,8 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
 package conexion;
 
 import java.sql.Connection;
@@ -5,19 +10,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
- * @author ediso
+ *    
+ * @author kricc
  */
 public class Conexion {
-
-    //conexion local
-    public static Connection conectar() {
+    
+    private static String url = "jdbc:mysql://localhost:3306/clientedatabase?zeroDateTimeBehavior=CONVERT_TO_NULL";
+    private static String usec = "root";
+    private static String clave ="123456789";
+    
+    public static Connection conectar() throws SQLException {
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/clientedatabase?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "123456789");
-            return cn;
-        } catch (SQLException e) {
-            System.out.println("Error en la conexion local " + e);
-        }
-        return null;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            return DriverManager.getConnection(url,usec,clave) ;
+        } catch (ClassNotFoundException e) {
+          throw new SQLException(e.getMessage());
+        }  
     }
 }
