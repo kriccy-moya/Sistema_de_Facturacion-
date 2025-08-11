@@ -40,6 +40,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMIRegistrarUsuario = new javax.swing.JMenuItem();
         jMIGestionarUsuarios = new javax.swing.JMenuItem();
+        jMICerrarSesion = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMIRegistrarProducto = new javax.swing.JMenuItem();
         jMIGestionarProductos = new javax.swing.JMenuItem();
@@ -65,8 +66,6 @@ public class Menu extends javax.swing.JFrame {
         jMICiudades = new javax.swing.JMenuItem();
         jMIMarcas = new javax.swing.JMenuItem();
         jMIInteres = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        jMICerrarSesion = new javax.swing.JMenuItem();
 
         jMenuItem4.setText("jMenuItem4");
 
@@ -106,6 +105,16 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMIGestionarUsuarios);
+
+        jMICerrarSesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMICerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion.png"))); // NOI18N
+        jMICerrarSesion.setText("Cerrar Sesión");
+        jMICerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMICerrarSesionActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMICerrarSesion);
 
         jMenuBar1.add(jMenu1);
 
@@ -318,6 +327,11 @@ public class Menu extends javax.swing.JFrame {
         jMICiudades.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMICiudades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ciudades.png"))); // NOI18N
         jMICiudades.setText("Ciudades");
+        jMICiudades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMICiudadesActionPerformed(evt);
+            }
+        });
         jMenu9.add(jMICiudades);
 
         jMIMarcas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -331,24 +345,6 @@ public class Menu extends javax.swing.JFrame {
         jMenu9.add(jMIInteres);
 
         jMenuBar1.add(jMenu9);
-
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion.png"))); // NOI18N
-        jMenu8.setText("Cerrar Sesión");
-        jMenu8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jMenu8.setPreferredSize(new java.awt.Dimension(200, 50));
-
-        jMICerrarSesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMICerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion.png"))); // NOI18N
-        jMICerrarSesion.setText("Cerrar Sesión");
-        jMICerrarSesion.setPreferredSize(new java.awt.Dimension(150, 30));
-        jMICerrarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMICerrarSesionActionPerformed(evt);
-            }
-        });
-        jMenu8.add(jMICerrarSesion);
-
-        jMenuBar1.add(jMenu8);
 
         setJMenuBar(jMenuBar1);
 
@@ -400,10 +396,6 @@ public class Menu extends javax.swing.JFrame {
     private void jMIActualizarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIActualizarStockActionPerformed
         
     }//GEN-LAST:event_jMIActualizarStockActionPerformed
-
-    private void jMICerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICerrarSesionActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jMICerrarSesionActionPerformed
 
     private void jMIRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIRegistrarUsuarioActionPerformed
         
@@ -459,6 +451,14 @@ public class Menu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jMIGestionarProveedoresActionPerformed
+
+    private void jMICiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICiudadesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMICiudadesActionPerformed
+
+    private void jMICerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICerrarSesionActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMICerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -523,7 +523,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem15;
